@@ -1,0 +1,15 @@
+<p>This is the partial for comics.</p>
+<div ng-controller="ComicsCtrl">
+	<ul>
+		<li ng-repeat="comic in comics">
+		<div ng-repeat="img in comic.images">
+			<img src="{{img.path}}.{{img.extension}}">
+		</div>
+		{{comic.title}}
+		</li>
+	</ul>
+</div>
+<p>
+  Showing of 'interpolate' filter:
+  {{ 'Current version is v%VERSION%.' | interpolate }}
+</p>
