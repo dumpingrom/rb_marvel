@@ -1,13 +1,13 @@
 <p>This is the partial for comics.</p>
 <div ng-controller="ComicsCtrl">
-	<ul>
-		<li ng-repeat="comic in comics">
-		<div ng-repeat="img in comic.images">
-			<img src="{{img.path}}.{{img.extension}}">
-		</div>
-		{{comic.title}}
-		</li>
-	</ul>
+	<h1>{{comic.title}}</h1>
+	<img src="{{comic.images[0].path}}.{{comic.images[0].extension}}">
+	<p class="comic-description">
+		{{comic.description}}
+	</p>
+	<p class="comic-variant-description">
+		{{comic.variantDescription}}
+	</p>
 </div>
 <p>
   Showing of 'interpolate' filter:

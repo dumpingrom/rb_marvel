@@ -1,1 +1,24 @@
 <p>This is the partial for home.</p>
+<div ng-controller="HomeCtrl">
+	<form ng-submit="fetch('comics', comicsInput)">
+		<input type="text" ng-model="comicsInput" placeholder="Search comics...">
+		<input type="submit" id="submitComics" value="OK">
+	</form>
+	<ul>
+
+		<li ng-repeat="comic in comics">
+			<a href="#/comics/{{comic.id}}">{{comic.title}}</a>
+		</li>
+	</ul>
+
+	<form ng-submit="fetch('creators', creatorsInput)">
+		<input type="text" ng-model="creatorsInput" placeholder="Search creators...">
+		<input type="submit" id="submitCreators" value="OK">
+	</form>
+	<ul>
+
+		<li ng-repeat="creator in creators">
+			<a href="#/creators/{{creator.id}}">{{creator.fullName}}</a>
+		</li>
+	</ul>
+</div>
