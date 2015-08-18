@@ -24,7 +24,7 @@ angular.module('rbMarvel.home', ['ngRoute'])
 		var reqLimit = 100;
 
 		// build request URL
-		var reqUrl = 'http://gateway.marvel.com/v1/public/'+type+'?'+filter+'='+search+'&'+app.getRequestParams();
+		var reqUrl = 'http://gateway.marvel.com/v1/public/'+type+'?'+app.getRequestParams(true)+'&'+filter+'='+search;
 
 		/* SEND HTTP REQUEST */
 		$http({method: 'GET', url: reqUrl}).

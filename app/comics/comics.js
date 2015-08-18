@@ -12,7 +12,7 @@ angular.module('rbMarvel.comics', ['ngRoute'])
 .controller('ComicsCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
 	$scope.getComic = function () {
 		// build request URL
-		var reqUrl = 'http://gateway.marvel.com/v1/public/comics?id='+$routeParams.id+'&'+app.getRequestParams();
+		var reqUrl = 'http://gateway.marvel.com/v1/public/comics?id='+$routeParams.id+'&'+app.getRequestParams(true);
 		
 		// send http request
 		$http({method: 'GET', url: reqUrl}).
