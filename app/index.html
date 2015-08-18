@@ -6,42 +6,61 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>My AngularJS App</title>
+  <title>Marvel Comic/Creator seeker by R. Bevillard</title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
-  <ul class="menu">
-    <li><a href="#/home">Home</a></li>
-    <li><a href="#/creators">Creators</a></li>
-    <li><a href="#/comics">Comics</a></li>
-  </ul>
+<body layout="row" layout-aligne="center">
+  <!-- Sidenav -->
+  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-toolbar class="md-primary" id="menu-toolbar">
+      <h1 class="md-toolbar-tools"></h1>
+    </md-toolbar>
+    <md-content class="md-padding" ng-controller="SidenavCtrl">
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+      <md-button>Youpi</md-button>
+      
+    </md-content>
+  </md-sidenav>
 
-  <div ng-view></div>
 
-  <div>Romain Bevillard Marvel app version<span app-version></span></div>
+  <div layout="column" flex>
+    <!-- Top toolbar -->
+    <ng-include src="'partials/toolbar.html'"></ng-include>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
-  <script src="home/home.js"></script>
-  <script src="creators/creators.js"></script>
-  <script src="comics/comics.js"></script>
-  <script src="js/md5.js"></script>
-  <script src="js/tools.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <md-content class="md-padding md-default-theme" ng-controller="HomeCtrl">
+      <div ng-view></div>
+    </md-content>
+  </div>
+
+    <!-- In production use:
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+    -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    
+    <script src="app.js"></script>
+    <script src="home/home.js"></script>
+    <script src="creators/creators.js"></script>
+    <script src="comics/comics.js"></script>
+    <script src="js/md5.js"></script>
+    <script src="js/tools.js"></script>
+    
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
 </body>
 </html>

@@ -11,6 +11,7 @@ app.$apikey_pri_alt = '3301ec604d2aabf45b7d603e19100901b1374724';
 // Declare app level module which depends on views, and components
 angular.module('rbMarvel', [
   'ngRoute',
+  'ngMaterial',
   'rbMarvel.home',
   'rbMarvel.creators',
   'rbMarvel.comics',
@@ -21,4 +22,20 @@ angular.module('rbMarvel', [
 // lets get back home
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/home'});
+}])
+
+// theme config
+.config(['$mdThemingProvider', function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('red')
+    .accentPalette('red');
+}])
+
+.controller('SidenavCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', function($scope, $timeout, $mdSidenav, $log){
+	$scope.close = function () {
+      $mdSidenav('left').close()
+        .then(function () {
+          $log.debug("close LEFT is done");
+        });
+    };
 }]);
