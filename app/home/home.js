@@ -7,9 +7,11 @@ angular.module('rbMarvel.home', ['ngRoute'])
     templateUrl: 'home/home.html',
     controller: 'SearchCtrl'
   })
-  .when('/home/search/:type/:str', {
-  	templateUrl: 'home/home.html',
-  	controller: 'HomeCtrl'
+  .when('/home/search/:section/:str', {
+  	templateUrl: 'home/results.html',
+  	controller: 'HomeCtrl',
+  	resolve: {
+  	}
   });
 }])
 
@@ -18,30 +20,30 @@ angular.module('rbMarvel.home', ['ngRoute'])
 	$scope.loading = true;
 
 	// results containers
-	$scope.comics = null;
-	$scope.creators = null;
+	$scope.items = null;
 
 	// type and string of search
-	var type = $routeParams.type;
-	var str = $routeParams.str;
+	$scope.section = $routeParams.section;
+	$scope.str = $routeParams.str;
 
 	// filter param depending on type (comics/creators)
 	var filter;
-	(type === 'creators') ? filter = 'firstNameStartsWith' : filter = 'title';
+	($scope.section === 'creators') ? filter = 'firstNameStartsWith' : filter = 'title';
 
 	// req offset and limit
 	var reqOffset = 0;
 	var reqLimit = 100;
 
 	// build request URL
-	var reqUrl = 'http://gateway.marvel.com/v1/public/'+type+'?'+app.getRequestParams(true)+'&'+filter+'='+str;
+	var reqUrl = 'http://gateway.marvel.com/v1/public/'+$scope.section+'?'+app.getRequestParams(true)+'&'+filter+'='+$scope.str;
 
 	/* SEND HTTP REQUEST */
 	$http({method: 'GET', url: reqUrl}).
 		// request success
 		then(function (res) {
-			(type === 'creators') ? $scope.creators = res.data.data.results : $scope.comics = res.data.data.results;
+			$scope.items = res.data.data.results;
 			$scope.loading = false;
+			console.log($scope.items);
 		},
 
 		// request failure

@@ -28,7 +28,7 @@ config(['$routeProvider', function($routeProvider) {
 .config(['$mdThemingProvider', function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
     .primaryPalette('red')
-    .accentPalette('red');
+    .accentPalette('blue-grey');
 }])
 
 .controller('SidenavCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', function($scope, $timeout, $mdSidenav, $log){

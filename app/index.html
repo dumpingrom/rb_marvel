@@ -16,16 +16,14 @@
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
-<body layout="row" layout-aligne="center">
+<body layout="row" layout-align="center">
   <!-- Sidenav -->
   <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
     <md-toolbar class="md-primary" id="menu-toolbar">
       <h1 class="md-toolbar-tools"></h1>
     </md-toolbar>
     <md-content class="md-padding" ng-controller="SidenavCtrl">
-
-      <md-button>Youpi</md-button>
-      
+      <md-button>Home</md-button>
     </md-content>
   </md-sidenav>
 
@@ -38,7 +36,7 @@
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <md-content class="md-padding md-default-theme" ng-controller="HomeCtrl">
+    <md-content class="md-padding md-default-theme" ng-controller="HomeCtrl" layout="row" flex>
       <div ng-view></div>
     </md-content>
   </div>
