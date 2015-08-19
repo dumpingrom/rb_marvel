@@ -1,4 +1,4 @@
-<div ng-controller="HomeCtrl" layout="column" layout-align="center" style="padding-bottom: 15px; width: 80%;" class="md-whiteframe-z3">
+<div ng-controller="HomeCtrl" layout="column" layout-align="center" style="padding-bottom: 0;" class="md-whiteframe-z2">
 	<md-toolbar class="md-warn">
 		<div class="md-toolbar-tools">
 	      <h2 class="md-flex">Results for <em>{{str}}</em> in {{section}}</h2>
@@ -7,7 +7,8 @@
 	<md-content layout-padding style="min-height: 600px; max-height: 700px; padding: 24px;">
 		<md-list>
 			<md-list-item class="md-3-line" ng-repeat="item in items" ng-switch on="section">
-			<img ng-src="{{item.images[0].path}}.{{item.images[0].extension}}" class="md-avatar" alt="{{item.id}}" />
+			<img ng-switch-when="comics" ng-src="{{item.images[0].path}}.{{item.images[0].extension}}" class="md-avatar" alt="{{item.id}}" />
+			<img ng-switch-when="creators" ng-src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" class="md-avatar" alt="{{item.id}}" />
 			<a ng-switch-when="comics" href="#/comics/{{item.id}}">
 				<div class="md-list-item-text">
 					<h3>{{item.title}}</h3>
@@ -18,7 +19,7 @@
 			<a ng-switch-when="creators" href="#/creators/{{item.id}}">
 				<div class="md-list-item-text">
 					<h3>{{item.fullName}}</h3>
-					<h4>Created {{item.comics.items[0]}}, {{item.comics.items[1]}}...</h4>
+					<h4>Created {{item.comics.items[0].name}}, {{item.comics.items[1].name}}...</h4>
 					<p>{{item.stories.available}} stories available</p>
 				</div>
 			</a>

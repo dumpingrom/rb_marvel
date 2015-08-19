@@ -4,8 +4,29 @@
 
 #menu-toolbar {
   background-color: #F11E25;
-  background-image: url(http://cinergetica.com.mx/wp-content/uploads/2011/10/marvel-logo.jpg);
-  background-size: cover;
+  background-image: url(http://img3.wikia.nocookie.net/__cb20130326054506/logopedia/images/0/04/MarvelLogo.svg);
   background-repeat: no-repeat;
-  background-position: 0px -50px;
+  background-position: center;
+}
+
+.md-list-item-text h4 {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#content > md-content {
+	background-image: url(http://bs1.imghost.nu/images/1/99511.jpg);
+	background-repeat: no-repeat;
+}
+
+#sidenav {
+	background-image: url(http://images.fineartamerica.com/images-medium-large-5/spider-man-kayleigh-semeniuk.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: -900px 0px;
+}
+
+#sidenav .sidenav-button {
+	background-color: transparent;
 }
