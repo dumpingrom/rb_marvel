@@ -1,3 +1,9 @@
+a {
+  color: inherit;
+  text-decoration: none;
+  text-transform: none;
+}
+
 #top-toolbar {
   background-color: #000;
 }
@@ -19,14 +25,48 @@
 	background-repeat: no-repeat;
 }
 
+@media screen and (max-height: 712px) {
+  #resultsContent {
+    height: 490px;
+  }
+}
+
+@media screen and (min-height: 713px) {
+  #resultsContent {
+    height: 600px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  #resultsContainer, #searchbox {
+    width: 800px;
+  }
+}
+
+@media screen and (min-width: 1281px) {
+  #resultsContainer, #searchbox {
+    width: 1000px;
+  }
+}
 #sidenav {
-	background-image: url(http://images.fineartamerica.com/images-medium-large-5/spider-man-kayleigh-semeniuk.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: -900px 0px;
+  background-image: url(http://images.fineartamerica.com/images-medium-large-5/spider-man-kayleigh-semeniuk.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #sidenav .sidenav-button {
-	background-color: transparent;
+  background-color: transparent;
+}
+
+#searchbox md-content {
+  background-color: rgba(255, 255, 255, .95);
+  padding: 24px;
+}
+
+md-grid-list md-grid-tile md-grid-tile-footer {
+  background-color: rgba(0, 0, 0, .85);
+  min-height: 64px;
+  height: auto;
+  padding: 4px 2px;
 }

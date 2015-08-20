@@ -1,8 +1,14 @@
 <div ng-controller="CreatorsCtrl">
-	<h1>{{creator.fullName}}</h1>
-	<img src="{{creator.images[0].path}}.{{creator.images[0].extension}}">
+<md-content class="md-padding" layout-padding style="margin: 24px">
+	<md-card>
+		<md-card-content>
+			<h2 class="md-title">{{creator.fullName}}</h2>
+			<p>
+				Comics:<br>
+				<span ng-repeat="comic in creator.comics.items">{{comic.name}}<span ng-if="!$last">, </span></span>
+			</p>
+		</md-card-content>
+		<img class="md-card-image" ng-src="{{creator.thumbnail.path}}.{{creator.thumbnail.extension}}">
+	</md-card>
+</md-content>
 </div>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>

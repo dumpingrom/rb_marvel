@@ -21,6 +21,7 @@ angular.module('rbMarvel.comics', ['ngRoute'])
 			then(function (res) {
 				console.log(res.data);
 				$scope.comic = res.data.data.results[0];
+				console.log($scope.comic);
 
 			// request has failed
 			}, function (res) {

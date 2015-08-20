@@ -1,30 +1,45 @@
-<div ng-controller="HomeCtrl" layout="column" layout-align="center" style="padding-bottom: 0;" class="md-whiteframe-z2">
+<div ng-controller="HomeCtrl" layout="column" layout-align="center" style="margin-bottom: 24px;" class="md-whiteframe-z2" id="resultsContainer">
 	<md-toolbar class="md-warn">
 		<div class="md-toolbar-tools">
-	      <h2 class="md-flex">Results for <em>{{str}}</em> in {{section}}</h2>
+			<h2 class="md-flex">Results for <em>{{str}}</em> in {{section}}</h2>
+
+			<!-- puts buttons to the right -->
+			<span flex></span>
+
+			<!-- prev and next page buttons -->
+			<md-button ng-disabled="prevPage === false" ng-click="changePage(-1)">Prev.</md-button>
+			<md-button ng-disabled="nextPage === false" ng-click="changePage(1)">Next</md-button>
 	    </div>
 	</md-toolbar>
-	<md-content layout-padding style="min-height: 600px; max-height: 700px; padding: 24px;">
-		<md-list>
-			<md-list-item class="md-3-line" ng-repeat="item in items" ng-switch on="section">
-			<img ng-switch-when="comics" ng-src="{{item.images[0].path}}.{{item.images[0].extension}}" class="md-avatar" alt="{{item.id}}" />
-			<img ng-switch-when="creators" ng-src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" class="md-avatar" alt="{{item.id}}" />
-			<a ng-switch-when="comics" href="#/comics/{{item.id}}">
-				<div class="md-list-item-text">
-					<h3>{{item.title}}</h3>
-					<h4>{{item.series.name}}</h4>
-					<p>{{item.description}}</p>
-				</div>
-			</a>
-			<a ng-switch-when="creators" href="#/creators/{{item.id}}">
-				<div class="md-list-item-text">
-					<h3>{{item.fullName}}</h3>
-					<h4>Created {{item.comics.items[0].name}}, {{item.comics.items[1].name}}...</h4>
-					<p>{{item.stories.available}} stories available</p>
-				</div>
-			</a>
-			</md-list-item>
-		</md-list>
-		<div ng-show="loading === true && items == null"><md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular></div>
+	<md-content id="resultsContent" layout-padding style="padding: 24px;">
+		<md-grid-list
+			md-cols-sm="4" md-cols-md="10" md-cols-gt-md="10"
+			md-col-width-gt-md="1:1" md-col-width="2:2"
+			md-row-height-gt-md="1:1" md-row-height="2:2"
+			md-gutter="12px" md-gutter-gt-sm="8px">
+
+
+			<md-grid-tile
+				md-rowspan="3" 
+				md-colspan="2"
+				md-rowspan-sm="2"
+				md-colspan-sm="1"
+				ng-switch on="section" 
+				ng-repeat="item in items"
+				>
+				<img ng-switch-when="comics" ng-src="{{item.images[0].path}}.{{item.images[0].extension}}" style="height: 100%; width: 100%;">
+				<img ng-switch-when="creators" ng-src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" style="height: 100%; width: 100%;">
+
+				<!-- tiles footer -->
+				<a ng-href="#/{{section}}/{{item.id}}">
+					<md-grid-tile-footer>
+							<h3 ng-switch-when="comics">{{item.title}}</h3>
+							<h3 ng-switch-when="creators">{{item.fullName}}</h3>
+					</md-grid-tile-footer>
+				</a>
+			</md-grid-tile>
+
+		</md-grid-list>
+		<md-progress-circular ng-show="loading && items === null" class="md-hue-2" md-mode="indeterminate" style="margin-left: 50%; margin-top: 200px;"></md-progress-circular>
 	</md-content>
 </div>

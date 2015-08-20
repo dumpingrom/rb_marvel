@@ -1,18 +1,25 @@
-<div ng-controller="SearchCtrl">
-	<form ng-submit="fetch(type, str)">
-		<md-input-container>
-			<label>Browse items</label>
-			<input required type="text" ng-model="str">
-		</md-input-container>
-		<md-input-container>
-			<label>Search for...</label>
-			<md-select required ng-model="type">
-				<md-option value="comics">Comics</md-option>
-				<md-option value="creators">Creators</md-option>
-			</md-select>
-		</md-input-container>
-		</md-input-container>
-			<md-button type="submit" id="submitComics">GO!</md-button>
-		<md-input-container>
-	</form>
+<div ng-controller="SearchCtrl" id="searchbox">
+	<md-toolbar class="md-warn">
+		<div class="md-toolbar-tools">
+			<h2 class="md-flex">Browse comics and creators</h2>
+	    </div>
+	</md-toolbar>
+	<md-content>
+		<form ng-submit="fetch(type, str)">
+			<md-input-container>
+				<label>Browse items</label>
+				<input required type="text" ng-model="str">
+			</md-input-container>
+			<md-input-container>
+				<label>Search for...</label>
+				<md-select required ng-model="type">
+					<md-option value="comics" selected>Comics</md-option>
+					<md-option value="creators">Creators</md-option>
+				</md-select>
+			</md-input-container>
+			</md-input-container>
+				<md-button type="submit" id="submitComics">GO!</md-button>
+			<md-input-container>
+		</form>
+	</md-input-container>
 </div>

@@ -21,6 +21,7 @@ angular.module('rbMarvel.creators', ['ngRoute'])
 			then(function (res) {
 				console.log(res.data);
 				$scope.creator = res.data.data.results[0];
+				console.log($scope.creator);
 
 			// request has failed
 			}, function (res) {
