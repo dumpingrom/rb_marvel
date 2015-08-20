@@ -1,16 +1,17 @@
 'use strict';
 
-describe('rbMarvel.home module', function() {
+it('should map routes to controllers', function() {
+	module('rbMarvel.home');
 
-  beforeEach(module('rbMarvel.home'));
+	inject(function($route) {
+		//search ctrl (default page)
+		expect($route.routes['/home'].controller).toBe('SearchCtrl');
+		expect($route.routes['/home'].templateUrl)
+			.toEqual('home/home.html');
 
-  describe('home controller', function(){
-
-    it('should ....', inject(function($controller) {
-      //spec body
-      var homeCtrl = $controller('HomeCtrl');
-      expect(homeCtrl).toBeDefined();
-    }));
-
-  });
+		//search ctrl (fetch results)
+		expect($route.routes['/home/search/:section/:str'].controller).toBe('HomeCtrl');
+		expect($route.routes['/home/search/:section/:str'].templateUrl)
+			.toEqual('home/results.html');
+	});
 });
