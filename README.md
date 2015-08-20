@@ -42,7 +42,7 @@ npm install
 
 #### Run locally
 
-We have preconfigured the project with a simple development web server.  The simplest way to start
+The project is configured with a basic nodejs web server. The simplest way to start
 this server is:
 
 ```
@@ -54,7 +54,7 @@ Now browse to the app at `http://localhost:8000/app/`.
 
 #### Run in production
 
-You can also run the app online at [http://rbvl.site50.net](http://rbvl.site50.net)
+You can also browse the app online at [http://rbvl.site50.net](http://rbvl.site50.net)
 
 
 ## Testing
