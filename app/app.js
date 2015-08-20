@@ -12,7 +12,7 @@ app.$apikey_pri_alt = '3301ec604d2aabf45b7d603e19100901b1374724';
 angular.module('rbMarvel', [
   'ngRoute',
   'ngMaterial',
-  'ngMock,',
+  'ngMock',
   'rbMarvel.home',
   'rbMarvel.creators',
   'rbMarvel.comics',
