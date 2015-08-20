@@ -12,7 +12,10 @@ To get you started you can simply clone the repository and install the dependenc
 
 ### Prerequisites
 
-The app uses a number of node.js tools to initialize and test angular-seed. You must have node.js and
+You need git to clone the angular-seed repository. You can get git from
+[http://git-scm.com/](http://git-scm.com/).
+
+The app uses a number of node.js tools. You must have node.js and
 its package manager (npm) installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
 
 ### Clone the repo
@@ -29,8 +32,8 @@ cd rb_marvel
 We have two kinds of dependencies in this project: tools and angular framework code.  The tools help
 us manage and test the application.
 
-* We get the tools we depend upon via `npm`, the [node package manager][npm].
-* We get the angular code via `bower`, a [client-side code package manager][bower].
+* We get the tools we depend upon via `npm`, the [node package manager](https://www.npmjs.org/).
+* We get the angular code via `bower`, a [client-side code package manager](http://bower.io/).
 
 We have preconfigured `npm` to automatically run `bower` so we can simply do:
 
@@ -64,8 +67,7 @@ There are two kinds of tests in the angular-seed application: Unit tests and End
 ### Running Unit Tests
 
 The angular-seed app comes preconfigured with unit tests. These are written in
-[Jasmine][jasmine], which we run with the [Karma Test Runner][karma]. We provide a Karma
-configuration file to run them.
+[Jasmine](http://jasmine.github.io/), which runs with the [Karma Test Runner](http://karma-runner.github.io/).
 
 * the configuration is found at `karma.conf.js`
 * the unit tests are found next to the code they are testing and are named as `..._test.js`.
