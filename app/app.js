@@ -16,7 +16,6 @@ angular.module('rbMarvel', [
   'rbMarvel.home',
   'rbMarvel.creators',
   'rbMarvel.comics',
-  'md5',
   'rbMarvel.version'
 ]).
 
