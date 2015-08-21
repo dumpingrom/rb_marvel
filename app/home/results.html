@@ -14,21 +14,27 @@
 	<md-content id="resultsContent" layout-padding style="padding: 24px;">
 		<md-grid-list
 			md-cols-sm="4" md-cols-md="10" md-cols-gt-md="10"
+			md-rows="5"
 			md-col-width-gt-md="1:1" md-col-width="2:2"
 			md-row-height-gt-md="1:1" md-row-height="2:2"
-			md-gutter="12px" md-gutter-gt-sm="8px">
+			md-gutter="12px" md-gutter-sm="8px">
 
 
 			<md-grid-tile
-				md-rowspan="3" 
-				md-colspan="2"
-				md-rowspan-sm="2"
-				md-colspan-sm="1"
+				md-rowspan-gt-sm="3" 
+				md-colspan-gt-sm="2"
+				md-rowspan="1"
+				md-colspan="1"
 				ng-switch on="section" 
 				ng-repeat="item in items"
 				>
+				<a ng-href="#/{{section}}/{{item.id}}">
 				<img ng-switch-when="comics" ng-src="{{item.images[0].path}}.{{item.images[0].extension}}" style="height: 100%; width: 100%;">
+				</a>
+
+				<a ng-href="#/{{section}}/{{item.id}}">
 				<img ng-switch-when="creators" ng-src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" style="height: 100%; width: 100%;">
+				</a>
 
 				<!-- tiles footer -->
 				<a ng-href="#/{{section}}/{{item.id}}">

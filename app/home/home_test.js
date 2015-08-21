@@ -1,7 +1,7 @@
 'use strict';
 
 it('should map routes to controllers', function() {
-	module('rbMarvel.home');
+	beforeEach(module('rbMarvel.home'));
 
 	inject(function($route) {
 		//search ctrl (default page)

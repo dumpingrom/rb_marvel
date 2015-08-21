@@ -2,12 +2,13 @@
 
 var app = window.app;
 
+
 /**
 * These are basic unit tests
 * to be improved overtime
 */
 it('should map routes to controllers and make http req', function() {
-	module('rbMarvel.comics');
+	beforeEach(module('rbMarvel.comics'));
 
 	inject(function($route) {
 		//search ctrl (default page)

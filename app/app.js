@@ -10,33 +10,33 @@ app.$apikey_pri_alt = '3301ec604d2aabf45b7d603e19100901b1374724';
 
 // Declare app level module which depends on views, and components
 angular.module('rbMarvel', [
-  'ngRoute',
-  'ngMaterial',
-  //'ngMock',
-  'rbMarvel.home',
-  'rbMarvel.creators',
-  'rbMarvel.comics',
-  'rbMarvel.version'
-]).
+	'ngRoute',
+	'ngMaterial',
+	'ngAnimate',
+	//'ngMock',
+	'rbMarvel.home',
+	'rbMarvel.creators',
+	'rbMarvel.comics',
+	'rbMarvel.version'
+	])
 
 // if no route or route not existing provided,
 // lets get back home
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/home'});
+.config(['$routeProvider', function($routeProvider) {
+	$routeProvider.otherwise({redirectTo: '/home'});
 }])
 
 // theme config
-.config(['$mdThemingProvider', function($mdThemingProvider, $mdIconProvider) {
-  $mdThemingProvider.theme('default')
-    .primaryPalette('red')
-    .accentPalette('blue-grey');
-  $mdIconProvider
-  	
-  	.icon("menu" , "assets/menu.svg" , 24);
+.config(['$mdThemingProvider', '$mdIconProvider', function($mdThemingProvider, $mdIconProvider) {
+	$mdThemingProvider.theme('default')
+		.primaryPalette('red')
+		.accentPalette('blue-grey');
+	$mdIconProvider
+		.icon("menu" , "assets/menu.svg" , 24);
 }])
 
-.controller('NavCtrl', ['$scope', '$timeout', '$mdSidenav', function($scope, $mdSidenav){
-	$scope.toggleSidenav = function(menuId) {
-		$mdSidenav(menuId).toggle();
-	};
+.controller('NavCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
+	$scope.toggleLeft = function() {
+		$mdSidenav('left').toggle();
+	}
 }]);

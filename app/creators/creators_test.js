@@ -1,11 +1,12 @@
 'use strict';
 
+
 /**
 * These are basic unit tests
 * to be improved overtime
 */
 it('should map routes to controllers and make http req', function() {
-	module('rbMarvel.creators');
+	beforeEach(module('rbMarvel.creators'));
 
 	// test creators ctrl (default page)
 	inject(function($route) {

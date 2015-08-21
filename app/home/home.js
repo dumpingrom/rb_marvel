@@ -44,8 +44,12 @@ angular.module('rbMarvel.home', ['ngRoute'])
 		var reqUrl = 'http://gateway.marvel.com/v1/public/'
 					+$scope.section
 					+'?offset='+($scope.currentPage * 20)+'&'
-					+app.getRequestParams(true)+'&'
-					+filter+'='+$scope.str;
+					+app.getRequestParams(true);
+
+		// add filter only if str is not * (all)
+		if ($scope.str !== '*') {
+			reqUrl += '&'+filter+'='+$scope.str; 
+		}
 
 
 		/* SEND HTTP REQUEST */
