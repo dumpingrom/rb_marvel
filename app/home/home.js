@@ -94,8 +94,9 @@ angular.module('rbMarvel.home', ['ngRoute'])
 			function (res) {
 				$scope.loading = false;
 				$scope.failed = true;
+				$scope.failedText = 'Error code: ' + res.data.code + ', status: ' + res.data.status;
 			});
-	}
+	};
 
 	/**
 	* @function changePage
@@ -107,7 +108,7 @@ angular.module('rbMarvel.home', ['ngRoute'])
 		$scope.currentPage += action;
 		console.log($scope.currentPage);
 		$scope.request();
-	}
+	};
 
 	$scope.request();
 }])

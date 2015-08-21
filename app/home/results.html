@@ -47,5 +47,17 @@
 
 		</md-grid-list>
 		<md-progress-circular ng-show="loading && items === null" class="md-hue-2" md-mode="indeterminate" style="margin-left: 50%; margin-top: 200px;"></md-progress-circular>
+		<md-card class="md-padding" ng-show="failed">
+			<div>
+				There has been an issue with your request, please contact our administrator at <strong>admin[at]marvel.com</strong> with that error message:<br>
+				<pre>{{failedText}}</pre>
+			</div>
+		</md-card>
+		<md-card class="md-padding" ng-show="total === 0">
+			<div>
+				No results for <strong>{{str}}</strong> in <strong>{{section}}</strong>...<br>
+				Please try again.
+			</div>
+		</md-card>
 	</md-content>
 </div>
