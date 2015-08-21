@@ -9,27 +9,37 @@ angular.module('rbMarvel.home', ['ngRoute'])
   })
   .when('/home/search/:section/:str', {
   	templateUrl: 'home/results.html',
-  	controller: 'HomeCtrl',
+  	controller: 'ResultsCtrl',
   	resolve: {
   	}
   });
 }])
 
-.controller('HomeCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+.controller('ResultsCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+	/**
+	* SCOPE VARS
+	*/
 	// results containers
 	$scope.items = null;
 
 	// type and string of search
 	$scope.section = $routeParams.section;
 	$scope.str = $routeParams.str;
+	// page handling
 	$scope.currentPage = 0;
 	$scope.nextPage = false;
 	$scope.prevPage = false;
+	// bool: has the request failed?
+	$scope.failed = false;
 
 	// filter param depending on type (comics/creators)
 	var filter;
 	($scope.section === 'creators') ? filter = 'firstNameStartsWith' : filter = 'title';
 
+
+	/**
+	* CTRL METHODS
+	*/
 
 	/**
 	* @function request
@@ -83,6 +93,7 @@ angular.module('rbMarvel.home', ['ngRoute'])
 			// request failure
 			function (res) {
 				$scope.loading = false;
+				$scope.failed = true;
 			});
 	}
 
@@ -101,6 +112,8 @@ angular.module('rbMarvel.home', ['ngRoute'])
 	$scope.request();
 }])
 
+// this controller is used to change page location,
+// thus activating the ResultsCtrl
 .controller('SearchCtrl', ['$scope', '$location', function($scope, $location){
 	$scope.fetch = function (type, str) {
 		$location.path('/home/search/'+type+'/'+str);

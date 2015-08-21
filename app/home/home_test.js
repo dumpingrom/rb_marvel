@@ -10,7 +10,7 @@ it('should map routes to controllers', function() {
 			.toEqual('home/home.html');
 
 		//search ctrl (fetch results)
-		expect($route.routes['/home/search/:section/:str'].controller).toBe('HomeCtrl');
+		expect($route.routes['/home/search/:section/:str'].controller).toBe('ResultsCtrl');
 		expect($route.routes['/home/search/:section/:str'].templateUrl)
 			.toEqual('home/results.html');
 	});
