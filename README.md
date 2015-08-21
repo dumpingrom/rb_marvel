@@ -1,9 +1,9 @@
 # Marvel comic / creator browser by R. Bevillard
 
-This project has been made as a test for [http://amplitude-studios.com](Amplitude Studios), it simply allows you to search 
+This project has been made as a test for [Amplitude Studios](http://amplitude-studios.com), it simply allows you to search 
 for a Marvel comic or creator and fetch the results. You can see a description of the item as well.
 
-The app has been made with AngularJS and fetches results from the [http://developer.marvel.com](Marvel API).
+The app has been made with AngularJS and fetches results from the [Marvel API](http://developer.marvel.com).
 
 
 ## Getting Started
@@ -20,7 +20,7 @@ its package manager (npm) installed.  You can get them from [http://nodejs.org/]
 
 ### Clone the repo
 
-Clone the rb_marvel repository using [git][git]:
+Clone the rb_marvel repository using [git][http://git-scm.com/]:
 
 ```
 git clone https://github.com/rombevillard/rb_marvel
