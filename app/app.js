@@ -26,17 +26,17 @@ config(['$routeProvider', function($routeProvider) {
 }])
 
 // theme config
-.config(['$mdThemingProvider', function($mdThemingProvider) {
+.config(['$mdThemingProvider', function($mdThemingProvider, $mdIconProvider) {
   $mdThemingProvider.theme('default')
     .primaryPalette('red')
     .accentPalette('blue-grey');
+  $mdIconProvider
+  	
+  	.icon("menu" , "assets/menu.svg" , 24);
 }])
 
-.controller('SidenavCtrl', ['$scope', '$timeout', '$mdSidenav', '$log', function($scope, $timeout, $mdSidenav, $log){
-	$scope.close = function () {
-      $mdSidenav('left').close()
-        .then(function () {
-          $log.debug("close LEFT is done");
-        });
-    };
+.controller('NavCtrl', ['$scope', '$timeout', '$mdSidenav', function($scope, $mdSidenav){
+	$scope.toggleSidenav = function(menuId) {
+		$mdSidenav(menuId).toggle();
+	};
 }]);
