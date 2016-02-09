@@ -1,6 +1,6 @@
 # Marvel comic / creator browser by R. Bevillard
 
-This app, made mainly with JavaScript, Angular and Love <3 allows you to search for a Marvel comic or creator and fetch the results. 
+This app, made mainly with JavaScript, Angular, NodeJS and Love <3 allows you to search for a Marvel comic or creator and fetch the results. 
 You can see a description of the item as well.
 
 The app has been made with AngularJS and fetches results from the [Marvel API](http://developer.marvel.com).
